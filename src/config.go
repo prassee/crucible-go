@@ -14,19 +14,19 @@ func LoadTablesConfig(path string) ([]types.TableIdentifier, error) {
 	}
 	defer file.Close()
 
-	var tables types.Tables
+	var configs []types.TableConfig
 	decoder := yaml.NewDecoder(file)
-	if err := decoder.Decode(&tables); err != nil {
+	if err := decoder.Decode(&configs); err != nil {
 		return nil, err
 	}
 
-	var result []types.TableIdentifier
-	for _, t := range tables {
-		result = append(result, types.TableIdentifier{
-			Catalog:   t.Catalog,
-			Schema:    t.Schema,
-			TableName: t.TableName,
-		})
+	tables := make([]types.TableIdentifier, len(configs))
+	for i, c := range configs {
+		tables[i] = types.TableIdentifier{
+			Catalog:   c.Catalog,
+			Schema:    c.Schema,
+			TableName: c.TableName,
+		}
 	}
-	return result, nil
+	return tables, nil
 }

@@ -1,8 +1,5 @@
 # config.yaml
 # List of tables to process
-- catalog: default
-  schema: test
-  table_name: my_table1
-- catalog: default
-  schema: test
-  table_name: my_table2
+- catalog: lakekeeper
+  schema: uam_sync_uam_public
+  table_name: user_activity

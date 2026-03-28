@@ -14,10 +14,10 @@ type SnapShotRow struct {
 }
 
 type IbTableAggregate struct {
-	catalog   string
-	schema    string
-	tableName string
-	snapShots int32
+	Catalog   string
+	Schema    string
+	TableName string
+	SnapShots int32
 }
 
 type TableConfig struct {
@@ -25,5 +25,3 @@ type TableConfig struct {
 	Schema    string `yaml:"schema"`
 	TableName string `yaml:"table_name"`
 }
-
-type Tables []TableConfig

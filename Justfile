@@ -1,7 +1,10 @@
+fmt:
+    gofmt -w src/
+
 default: run
 
 build:
-    go build -o bin/crucible src/main.go
+    go build -o bin/crucible ./src
 
 run: build
     ./bin/crucible
