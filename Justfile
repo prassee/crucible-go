@@ -9,5 +9,5 @@ run: build
 clean:
     rm -rf bin/
 
-mod:
+go-mod:
     go mod tidy

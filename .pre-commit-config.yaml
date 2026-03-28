@@ -1,0 +1,10 @@
+repos:
+  - repo: https://github.com/dnephin/pre-commit-golang
+    rev: v1.5.0
+    hooks:
+      - id: go-fmt
+      - id: go-imports
+      - id: go-vet
+      - id: golangci-lint
+        args: ["--fast"]
+      - id: go-unit-tests
