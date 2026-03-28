@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"crucible-go/src/client"
-	"database/sql"
 	"fmt"
 	"log"
 
@@ -11,22 +10,21 @@ import (
 )
 
 func main() {
-	dsn := "http://admin@localhost:9080?catalog=default&schema=test"
-	db, err := sql.Open("trino", dsn)
+	dbClient, err := client.NewTrinoClient("http://admin@localhost:9080?catalog=default&schema=test")
 	if err != nil {
-		log.Fatalf("Error connecting to Trino: %v", err)
+		log.Fatalf("Error creating Trino client: %v", err)
 	}
-	defer db.Close()
-
+	defer dbClient.Close()
 	tables, err := LoadTablesConfig("config.yaml")
 	if err != nil {
 		log.Fatalf("Error loading tables config: %v", err)
 	}
 
 	ctx := context.Background()
+	icebergTable := &client.IcebergTable{Ctx: ctx, DB: dbClient.DB}
 	for _, table := range tables {
 		fmt.Printf("Processing table: %s.%s.%s\n", table.Catalog, table.Schema, table.TableName)
-		if err := client.CollectSnapshotMetrics(ctx, table, db); err != nil {
+		if err := icebergTable.CollectSnapshotMetrics(table); err != nil {
 			log.Fatalf("Error collecting snapshot metrics for %s.%s.%s: %v", table.Catalog, table.Schema, table.TableName, err)
 		}
 	}
