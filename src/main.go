@@ -24,7 +24,7 @@ func main() {
 	icebergTable := &client.IcebergTable{Ctx: ctx, DB: dbClient.DB}
 	for _, table := range tables {
 		fmt.Printf("Processing table: %s.%s.%s\n", table.Catalog, table.Schema, table.TableName)
-		if err := icebergTable.CollectSnapshotMetrics(table); err != nil {
+		if _, err := icebergTable.CollectMetrics(table); err != nil {
 			log.Fatalf("Error collecting snapshot metrics for %s.%s.%s: %v", table.Catalog, table.Schema, table.TableName, err)
 		}
 	}
