@@ -1,3 +1,4 @@
+// Package client provides Trino database client functionality for collecting and storing Iceberg table metrics.
 package client
 
 import (

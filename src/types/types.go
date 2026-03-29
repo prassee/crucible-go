@@ -1,3 +1,4 @@
+// Package types defines the core data structures used throughout the Crucible application, including configuration, table identifiers, and metrics.
 package types
 
 import (
