@@ -20,7 +20,7 @@ k8s-push docker_name='desktop': docker-build
     kind load docker-image crucible:latest --name {{docker_name}}
 
 k8s-deploy: k8s-push
-    kubectl apply -f k8s-job.yaml
+    kubectl apply -f k8s-job.yaml --namespace lakehouse
 
 run: build
     ./bin/crucible
