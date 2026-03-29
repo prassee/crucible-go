@@ -48,18 +48,18 @@ type TableMetric struct {
 	CollectedAt   time.Time
 }
 
-var avgMBNull, totalGBNull sql.NullFloat64
+// var avgMBNull, totalGBNull sql.NullFloat64
 
-func (t *TableMetric) GetAvgMB() float64 {
-	if avgMBNull.Valid {
-		return avgMBNull.Float64
-	}
-	return 0
-}
+// func (t *TableMetric) GetAvgMB() float64 {
+// 	if avgMBNull.Valid {
+// 		return avgMBNull.Float64
+// 	}
+// 	return 0
+// }
 
-func (t *TableMetric) GetTotalGB() float64 {
-	if totalGBNull.Valid {
-		return totalGBNull.Float64
-	}
-	return 0
-}
+// func (t *TableMetric) GetTotalGB() float64 {
+// 	if totalGBNull.Valid {
+// 		return totalGBNull.Float64
+// 	}
+// 	return 0
+// }

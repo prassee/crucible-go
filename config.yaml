@@ -1,5 +1,4 @@
 # config.yaml
-# List of tables to process
 trino_dsn: "http://admin@localhost:9080?catalog=default&schema=test"
 catalog: "lakekeeper"
 workers: 1
