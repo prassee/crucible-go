@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: crucible-config
-  namespace: lakekeeper
+  namespace: lakehouse
 data:
   config.yaml: |
     trino_dsn: "http://admin@localhost:9080?catalog=default&schema=test"

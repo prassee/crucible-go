@@ -19,7 +19,12 @@ docker-build: build
 k8s-push docker_name='desktop': docker-build
     kind load docker-image crucible:latest --name {{docker_name}}
 
-k8s-deploy: k8s-push
+k8s-scaledown:
+    kubectl delete job crucible-job --namespace lakehouse || true
+
+# k8s-push
+k8s-deploy: k8s-scaledown
+    kubectl apply -f crucible-config-cm.yaml --namespace lakehouse
     kubectl apply -f k8s-job.yaml --namespace lakehouse
 
 run: build
