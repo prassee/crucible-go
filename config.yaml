@@ -1,5 +1,5 @@
 # config.yaml
 # List of tables to process
-- catalog: lakekeeper
-  schema: uam_sync_uam_public
-  table_name: user_activity
+trino_dsn: "http://admin@localhost:9080?catalog=default&schema=test"
+catalog: "lakekeeper"
+workers: 1
