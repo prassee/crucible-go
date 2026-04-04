@@ -2,9 +2,8 @@ package main
 
 import (
 	"crucible-go/src/types"
-	"os"
-
 	"gopkg.in/yaml.v3"
+	"os"
 )
 
 func LoadCrucibleConfig(path string) (types.CrucibleConfig, error) {
