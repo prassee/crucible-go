@@ -2,3 +2,4 @@
 trino_dsn: "http://admin@localhost:9080?catalog=default&schema=test"
 catalog: "lakekeeper"
 workers: 1
+
