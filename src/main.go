@@ -9,6 +9,10 @@ import (
 	_ "github.com/trinodb/trino-go-client/trino"
 )
 
+func add(a, b int) int {
+	return a + b
+}
+
 func loadConfig() (*types.CrucibleConfig, error) {
 	cfg, err := LoadCrucibleConfig("config.yaml")
 	if err != nil {
