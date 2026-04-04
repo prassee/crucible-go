@@ -4,30 +4,10 @@ import (
 	"context"
 	"crucible-go/src/client"
 	"crucible-go/src/types"
-	"fmt"
 	"log"
 
 	_ "github.com/trinodb/trino-go-client/trino"
 )
-
-func add(a, b int) int {
-	return a + b
-}
-
-func subtract(a, b int) int {
-	return a - b
-}
-
-func multiply(a, b int) int {
-	return a * b
-}
-
-func divide(a, b int) (int, error) {
-	if b == 0 {
-		return 0, fmt.Errorf("division by zero")
-	}
-	return a / b, nil
-}
 
 func loadConfig() (*types.CrucibleConfig, error) {
 	cfg, err := LoadCrucibleConfig("config.yaml")
