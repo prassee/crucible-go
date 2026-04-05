@@ -22,6 +22,7 @@ func NewTrinoClient(dsn string) (*TrinoClient, error) {
 	if err != nil {
 		return nil, err
 	}
+	println("Successfully connected to Trino")
 	return &TrinoClient{DSN: dsn, DB: db}, nil
 }
 
